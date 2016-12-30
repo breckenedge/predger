@@ -103,7 +103,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: './manifest.json', to: './' },
-      { from: './favicon.ico', to: './' }
+      { from: './favicon.ico', to: './' },
+      { from: './main.manifest', to: './' }
     ])
   ]).concat(ENV==='production' ? [
     // strip out babel-helper invariant checks

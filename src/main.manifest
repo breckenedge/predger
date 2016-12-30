@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# Enables iOS offline caching.
+# Cache version 0.1.0.
+
+index.html
+style.css
+bundle.js
+
+NETWORK:
+*
