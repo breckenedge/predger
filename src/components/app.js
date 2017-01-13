@@ -26,7 +26,7 @@ export default class App extends Component {
     var newItemValue = parseFloat(this.state.newItemValue);
     if (isNaN(newItemValue)) return;
     var newItem = {id: (new Date).getTime(), value: parseFloat(this.state.newItemValue)};
-    this.state.items.push(newItem);
+    this.state.items.unshift(newItem);
     this.setState({items: this.state.items, newItemValue: ''}, this.updateLocalStorage);
   }
 
