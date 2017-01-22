@@ -49,7 +49,11 @@ export default class App extends Component {
   }
 
   formatCurrency(num) {
-    return '$' + num.toFixed(2);
+    if (num < 0) {
+      return '-$' + (num * -1).toFixed(2);
+    } else {
+      return '$' + num.toFixed(2);
+    }
   }
 
   updateLocalStorage() {
