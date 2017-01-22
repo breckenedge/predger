@@ -26,7 +26,11 @@ export default class App extends Component {
     e.preventDefault();
     var newItemValue = parseFloat(this.state.newItemValue);
     if (isNaN(newItemValue)) return;
-    var newItem = {id: uuid.v1(), value: parseFloat(this.state.newItemValue)};
+    var newItem = {
+      id: uuid.v1(),
+      value: parseFloat(this.state.newItemValue),
+      createdAt: (new Date()).getTime()
+    };
     this.state.items.unshift(newItem);
     this.setState({items: this.state.items, newItemValue: ''}, this.updateLocalStorage);
   }
