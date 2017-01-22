@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import uuid from 'uuid';
 
 export default class App extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class App extends Component {
     e.preventDefault();
     var newItemValue = parseFloat(this.state.newItemValue);
     if (isNaN(newItemValue)) return;
-    var newItem = {id: (new Date).getTime(), value: parseFloat(this.state.newItemValue)};
+    var newItem = {id: uuid.v1(), value: parseFloat(this.state.newItemValue)};
     this.state.items.unshift(newItem);
     this.setState({items: this.state.items, newItemValue: ''}, this.updateLocalStorage);
   }
@@ -36,8 +37,9 @@ export default class App extends Component {
 
   handleRemoveItem(e) {
     var i = this.state.items.findIndex(function(item) {
-      return parseFloat(e.target.value) == item.id;
+      return e.target.value === item.id;
     });
+    if (i == -1) { return; }
     this.state.items.splice(i, 1);
     this.setState({items: this.state.items}, this.updateLocalStorage);
   };
