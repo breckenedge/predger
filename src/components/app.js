@@ -72,10 +72,10 @@ export default class App extends Component {
 
   Item(item) {
     return <div key={item.id}>
-      <div className="col1">
+      <div className="span7">
         <label>{this.formatCurrency(item.value)}</label>
       </div>
-      <div className="col2">
+      <div className="span1">
         <button onClick={this.handleRemoveItem} value={item.id} className="btn-danger">−</button>
       </div>
     </div>;
@@ -86,14 +86,16 @@ export default class App extends Component {
       <div>
         <div className="title">{this.formatCurrency(this.Total())}</div>
         <form onSubmit={this.handleAddItem}>
-          <div className="col1">
+          <div className="span7">
             <input type="number" step="0.01" value={this.state.newItemValue} onChange={this.handleInputChange} placeholder={this.formatCurrency(0)}  />
           </div>
-          <div className="col2">
+          <div className="span1">
             <button className="btn-success">+</button>
           </div>
         </form>
-        {this.Items()}
+        <div>
+          {this.Items()}
+        </div>
         <div>
           <button onClick={this.handleReset}>Reset</button>
         </div>
