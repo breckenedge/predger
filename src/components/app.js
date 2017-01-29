@@ -9,6 +9,7 @@ export default class App extends Component {
     if (typeof(Storage) === 'undefined') {
       window.alert('Your browser is unsupported!');
     }
+    var categories = ['Clothing', 'Flying', 'Food', 'Fuel', 'Grooming', 'Health'];
     var items = [];
     var storedItems = localStorage.getItem(this.storageKey);
     if (storedItems !== null) {
@@ -19,7 +20,12 @@ export default class App extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleRemoveItem = this.handleRemoveItem.bind(this);
     this.handleReset = this.handleReset.bind(this);
-    this.state = {items: items, newItemValue: ''};
+    this.state = {
+      items: items,
+      newItemValue: '',
+      newItemCategory: categories[0],
+      categories: categories
+    };
   }
 
   handleAddItem(e) {
@@ -29,10 +35,11 @@ export default class App extends Component {
     var newItem = {
       id: uuid.v1(),
       value: parseFloat(this.state.newItemValue),
-      createdAt: (new Date()).getTime()
+      createdAt: (new Date()).getTime(),
+      category: this.state.newItemCategory
     };
     this.state.items.unshift(newItem);
-    this.setState({items: this.state.items, newItemValue: ''}, this.updateLocalStorage);
+    this.setState({items: this.state.items, newItemValue: '', newItemCategory: this.state.categories[0]}, this.updateLocalStorage);
   }
 
   handleInputChange(e) {
@@ -76,8 +83,11 @@ export default class App extends Component {
 
   Item(item) {
     return <div key={item.id}>
-      <div className="span7">
+      <div className="span3">
         <label>{this.formatCurrency(item.value)}</label>
+      </div>
+      <div className="span4">
+        <label>{item.category}</label>
       </div>
       <div className="span1">
         <button onClick={this.handleRemoveItem} value={item.id} className="btn-danger">−</button>
@@ -85,13 +95,27 @@ export default class App extends Component {
     </div>;
   }
 
+  CategorySelect() {
+    var options = [];
+    for (var i = 0; i < this.state.categories.length; i++) {
+      options.push(<option value={this.state.categories[i]}>{this.state.categories[i]}</option>);
+    }
+
+    return <select value={this.state.newItemCategory} onChange={(e) => { this.setState({newItemCategory: e.target.value}) }}>
+      {options}
+    </select>;
+  }
+
   render() {
     return (
       <div>
         <div className="title">{this.formatCurrency(this.Total())}</div>
         <form onSubmit={this.handleAddItem}>
-          <div className="span7">
+          <div className="span3">
             <input type="number" step="0.01" value={this.state.newItemValue} onChange={this.handleInputChange} placeholder={this.formatCurrency(0)}  />
+          </div>
+          <div className="span4">
+            { this.CategorySelect() }
           </div>
           <div className="span1">
             <button className="btn-success">+</button>
