@@ -1,0 +1,103 @@
+/* Flexbox Layout System */
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.span1 {
+  flex: 0 0 calc(12.5% - 10px);
+}
+
+.span2 {
+  flex: 0 0 calc(25% - 10px);
+}
+
+.span3 {
+  flex: 0 0 calc(37.5% - 10px);
+}
+
+.span4 {
+  flex: 0 0 calc(50% - 10px);
+}
+
+.span5 {
+  flex: 0 0 calc(62.5% - 10px);
+}
+
+.span6 {
+  flex: 0 0 calc(75% - 10px);
+}
+
+.span7 {
+  flex: 0 0 calc(87.5% - 10px);
+}
+
+.span8 {
+  flex: 0 0 calc(100% - 10px);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 95%;
+  margin: 0 auto;
+  background-color: #eee;
+  font-family: sans-serif;
+  line-height: 36px;
+  touch-action: manipulation; /* speed up taps on iOS */
+}
+
+body,
+input,
+button,
+select {
+  font-size: 18px;
+}
+
+input,
+button,
+label,
+select {
+  width: 100%;
+  border-radius: 0px;
+  box-shadow: none;
+  border: none;
+  padding: 3px;
+  height: 30px;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.btn-success {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.btn-success:hover {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.btn-danger {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.btn-danger:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+}
