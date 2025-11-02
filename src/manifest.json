@@ -1,7 +1,7 @@
 {
   "name": "Predger",
   "short_name": "Predger",
-  "start_url": "./",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
