@@ -1,57 +1,40 @@
-/* Grid System */
-.span1,
-.span2,
-.span3,
-.span4,
-.span5,
-.span6,
-.span7,
-.span8 {
-  float: left;
-  padding-right: 2.5%;
-}
-
-.span1:last-child,
-.span2:last-child,
-.span3:last-child,
-.span4:last-child,
-.span5:last-child,
-.span6:last-child,
-.span7:last-child,
-.span8:last-child {
-  padding-right: 0;
+/* Flexbox Layout System */
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
 }
 
 .span1 {
-  width: 12.5%;
+  flex: 0 0 calc(12.5% - 10px);
 }
 
 .span2 {
-  width: 25%;
+  flex: 0 0 calc(25% - 10px);
 }
 
 .span3 {
-  width: 37.5%;
+  flex: 0 0 calc(37.5% - 10px);
 }
 
 .span4 {
-  width: 50%;
+  flex: 0 0 calc(50% - 10px);
 }
 
 .span5 {
-  width: 62.5%;
+  flex: 0 0 calc(62.5% - 10px);
 }
 
 .span6 {
-  width: 75%;
+  flex: 0 0 calc(75% - 10px);
 }
 
 .span7 {
-  width: 87.5%;
+  flex: 0 0 calc(87.5% - 10px);
 }
 
 .span8 {
-  width: 100%;
+  flex: 0 0 calc(100% - 10px);
 }
 
 /* Base Styles */

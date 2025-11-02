@@ -22,7 +22,7 @@ function useLocalStorage(key, initialValue) {
 
 // Main App Component
 function App() {
-  const categories = ['Clothing', 'Flying', 'Food', 'Fuel', 'Grooming', 'Health'];
+  const categories = ['Clothing', 'Food', 'Fuel', 'Grooming', 'Health', 'Hobby'];
 
   const [items, setItems] = useLocalStorage('predger.items', []);
   const [newItemValue, setNewItemValue] = useState('');
@@ -67,8 +67,10 @@ function App() {
   }, [items]);
 
   const handleReset = useCallback(() => {
-    setItems([]);
-    setNewItemValue('');
+    if (window.confirm('Are you sure you want to reset all items? This cannot be undone.')) {
+      setItems([]);
+      setNewItemValue('');
+    }
   }, []);
 
   const handleCategoryChange = useCallback((e) => {
@@ -77,7 +79,7 @@ function App() {
 
   // Render a single item
   const renderItem = (item) => {
-    return h('div', { key: item.id },
+    return h('div', { key: item.id, className: 'row' },
       h('div', { className: 'span3' },
         h('label', null, formatCurrency(item.value))
       ),
@@ -109,7 +111,7 @@ function App() {
   // Main render
   return h('div', null,
     h('div', { className: 'title' }, formatCurrency(getTotal())),
-    h('form', { onSubmit: handleAddItem },
+    h('form', { onSubmit: handleAddItem, className: 'row' },
       h('div', { className: 'span3' },
         h('input', {
           type: 'number',
