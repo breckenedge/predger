@@ -2,6 +2,8 @@
 
 A simple spending tracker that helps you monitor your expenses. Track what you spend, categorize it, and see your total in real-time.
 
+**[Try it live →](https://breckenedge.github.io/predger/)**
+
 ## Features
 
 - Add spending items with amounts
