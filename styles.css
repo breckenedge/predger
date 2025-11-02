@@ -1,0 +1,114 @@
+/* Grid System */
+.span1,
+.span2,
+.span3,
+.span4,
+.span5,
+.span6,
+.span7,
+.span8 {
+  float: left;
+  padding-right: 2.5%;
+}
+
+.span1:last-child,
+.span2:last-child,
+.span3:last-child,
+.span4:last-child,
+.span5:last-child,
+.span6:last-child,
+.span7:last-child,
+.span8:last-child {
+  padding-right: 0;
+}
+
+.span1 {
+  width: 12.5%;
+}
+
+.span2 {
+  width: 25%;
+}
+
+.span3 {
+  width: 37.5%;
+}
+
+.span4 {
+  width: 50%;
+}
+
+.span5 {
+  width: 62.5%;
+}
+
+.span6 {
+  width: 75%;
+}
+
+.span7 {
+  width: 87.5%;
+}
+
+.span8 {
+  width: 100%;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 95%;
+  margin: 0 auto;
+  background-color: #eee;
+  font-family: sans-serif;
+  line-height: 36px;
+  touch-action: manipulation; /* speed up taps on iOS */
+}
+
+body, input, button, select {
+  font-size: 18px;
+}
+
+input, button, label, select {
+  width: 100%;
+  border-radius: 0px;
+  box-shadow: none;
+  border: none;
+  padding: 3px;
+  height: 30px;
+}
+
+button {
+  background-color: rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(0,0,0,0.15);
+}
+
+.btn-success {
+  background-color: rgba(0,255,0,0.2);
+}
+
+.btn-success:hover {
+  background-color: rgba(0,255,0,0.3);
+}
+
+.btn-danger {
+  background-color: rgba(255,0,0,0.2);
+}
+
+.btn-danger:hover {
+  background-color: rgba(255,0,0,0.3);
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+}
