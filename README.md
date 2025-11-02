@@ -82,9 +82,9 @@ npm run format
 The app uses [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) to alias CDN URLs:
 
 ```javascript
-import { h, render } from 'preact';          // → https://esm.sh/preact@10.25.4
-import { useState } from 'preact/hooks';     // → https://esm.sh/preact@10.25.4/hooks
-import { v4 } from 'uuid';                   // → https://esm.sh/uuid@11.0.3
+import { h, render } from 'preact'; // → https://esm.sh/preact@10.25.4
+import { useState } from 'preact/hooks'; // → https://esm.sh/preact@10.25.4/hooks
+import { v4 } from 'uuid'; // → https://esm.sh/uuid@11.0.3
 ```
 
 No bundler needed - the browser resolves these imports natively!
@@ -95,13 +95,15 @@ Instead of JSX, we use Preact's `h()` function directly:
 
 ```javascript
 // Instead of: <div className="title">Hello</div>
-h('div', { className: 'title' }, 'Hello')
+h('div', { className: 'title' }, 'Hello');
 
 // Nested elements:
-h('form', { onSubmit: handler },
+h(
+  'form',
+  { onSubmit: handler },
   h('input', { type: 'text', value: val }),
   h('button', null, 'Submit')
-)
+);
 ```
 
 More verbose than JSX, but completely transparent and build-free!
@@ -138,12 +140,14 @@ The app works entirely client-side, so any static file host will work.
 ## 📝 Browser Support
 
 This app requires a modern browser with:
+
 - ES2022+ JavaScript support
 - ES modules (`import`/`export`)
 - Import maps
 - Service workers (optional, for offline)
 
 Supported browsers:
+
 - Chrome/Edge 89+
 - Firefox 89+
 - Safari 15+
